@@ -1,4 +1,5 @@
 using game_collection.Data;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,27 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+
+// Register Identity Services
+// Inject classes IdentityUser and Identity Role
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(options => 
+{
+    // Configure email requirements
+    options.User.RequireUniqueEmail = true;
+    
+    // Configure Password requirements
+    options.Password.RequireDigit = true;
+    options.Password.RequireLowercase = true;
+    options.Password.RequireUppercase = true;
+    options.Password.RequireNonAlphanumeric = true;
+
+    // Lockout requirements
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(15);
+    options.Lockout.MaxFailedAccessAttempts = 3;
+})
+// Connect ApplicationDbContext to identity service
+.AddEntityFrameworkStores<ApplicationDbContext>();
+
 
 var app = builder.Build();
 
