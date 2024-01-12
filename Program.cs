@@ -32,6 +32,13 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
 // Connect ApplicationDbContext to identity service
 .AddEntityFrameworkStores<ApplicationDbContext>();
 
+// Setting up Cookie authentication
+builder.Services.ConfigureApplicationCookie(options => 
+{
+    // Configure the behaviour of the cookie
+    options.Cookie.Name = "WebAppIdentityt";
+    options.LoginPath = "/Account/Login";
+});
 
 var app = builder.Build();
 
