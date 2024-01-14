@@ -2,7 +2,8 @@
 
 Welcome to the Game Collection Manager, an ASP.NET Core web app that allows users to effortlessly add their favorite games to their personal game collections.
 
-![trin-wa-F6J2YEy6U8A-unsplash](https://github.com/rodercode/game-collection/assets/54941923/51a7ade9-b8a6-4bcc-a030-e890bf808acf)
+![trin-wa-F6J2YEy6U8A-unsplash (1)](https://github.com/rodercode/game-collection/assets/54941923/7e2b2510-f75b-420c-95bd-37be611ba770)
+
 
 
 ## Technologies Used
