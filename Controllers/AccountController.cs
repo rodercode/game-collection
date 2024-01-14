@@ -14,5 +14,11 @@ namespace game_collection.Controllers
         {
             return View();
         }
+
+        public IActionResult Login()
+        {
+            return View();
+        }
+
     }
 }
