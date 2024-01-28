@@ -10,6 +10,12 @@ namespace game_collection.Controllers
 {
     public class AccountController : Controller
     {
+        private readonly UserManager<IdentityUser> userManager;
+        
+        public AccountController(UserManager<IdentityUser> userManager){
+            this.userManager = userManager;
+        }
+
         public IActionResult Registration()
         {
             return View();
