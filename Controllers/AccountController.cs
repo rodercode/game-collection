@@ -16,6 +16,7 @@ namespace game_collection.Controllers
             this.userManager = userManager;
         }
 
+        [HttpGet]
         public IActionResult Registration()
         {
             return View();
