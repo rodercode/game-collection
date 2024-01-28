@@ -7,10 +7,10 @@ Additionally, it includes user registration and login functionality for secure a
 
 # Developing Features
 
-## User Registration:
+**User Registration:**
 - Users can register themselves on the system by providing essential information, such as username, email, and password.
 
-## User Login:
+**User Login:**
 - Registered users can securely log in to the system, enabling them to access their game collection and other functionalities.
 
 
