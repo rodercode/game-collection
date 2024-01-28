@@ -22,6 +22,37 @@ namespace game_collection.Controllers
             return View();
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Registration(RegisterViewModel model)
+        {
+            // Check if the model is valid
+            if(!ModelState.IsValid)
+            {
+                Console.WriteLine("model is invalid");
+                return View();
+            }
+
+            // Create the user
+            var newUser = new IdentityUser
+            {
+                UserName = model.Username,
+                Email = model.Email
+            };
+
+           // save the user info and the hashed password to the database
+           var result =  await this.userManager.CreateAsync(newUser, model.Password);
+           if(result.Succeeded)
+           {
+            Console.WriteLine("User was created successfully");
+            return Redirect("/Account/Login");
+           }
+           else
+           {
+            Console.WriteLine("User was not created successfully");
+            return View();
+           }
+        }
+
         [HttpGet]
         public IActionResult Login()
         {
