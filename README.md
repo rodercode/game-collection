@@ -6,8 +6,12 @@ Additionally, it includes user registration and login functionality for secure a
 ![juliane-liebermann-okBa2fFynvs-unsplash](https://github.com/rodercode/game-collection/assets/54941923/c74129cd-e240-4386-9fab-677700002560)
 
 # Developing Features
-User Registration: Users can create their own accounts by providing necessary details such as username, email, and password.
-User Login: Registered users can log in securely to access their game collection and perform CRUD (Create, Read, Update, Delete) operations on their games.
+
+## User Registration:
+- Users can register themselves on the system by providing essential information, such as username, email, and password.
+
+## User Login:
+- Registered users can securely log in to the system, enabling them to access their game collection and other functionalities.
 
 
 ## Technologies Used
