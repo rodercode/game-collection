@@ -1,3 +1,5 @@
+@model game_collection.Models.RegisterViewModel
+
 @{
     ViewData["Title"] = "Registration";
 }
@@ -7,28 +9,28 @@
         <div class="card bg-glass">
         <div class="card-body px-4 py-5 px-md-5">
             
-            <form method="post" action="test" >
+            <form method="post" asp-controller="Account" asp-action="Registration" >
                 <h1>Lets Sign you in</h1>
                 <p class="lead">Welcome back, You've been missed</p>
                 <div class="d-grid gap-4">
                     <!-- Username input -->
                     <div class="form-group">
-                    <input class="form-control form-control-lg" type="text" placeholder="Username"  />
+                    <input class="form-control form-control-lg" asp-for="Username" type="text" placeholder="Username"  />
                     </div>
 
                     <!-- Email input -->
                     <div class="form-group">
-                    <input class="form-control form-control-lg" type="email" placeholder="Email"  />
+                    <input class="form-control form-control-lg" asp-for="Email" type="email" placeholder="Email"  />
                     </div>
 
                     <!-- Password input -->
                     <div class="form-group">
-                    <input class="form-control form-control-lg" type="password" placeholder="Password"  />
+                    <input class="form-control form-control-lg" asp-for="Password" type="password" placeholder="Password"  />
                     </div>
 
                     <!-- Confirm Password input -->
                     <div class="form-group">
-                    <input class="form-control form-control-lg" type="password" placeholder="Confirm Password" />
+                    <input class="form-control form-control-lg" asp-for="ConfirmPassword" type="password" placeholder="Confirm Password" />
                     </div>
 
                     <!-- Submit button -->
