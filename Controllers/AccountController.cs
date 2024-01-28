@@ -22,6 +22,7 @@ namespace game_collection.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult Login()
         {
             return View();
