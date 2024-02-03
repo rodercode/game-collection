@@ -27,12 +27,7 @@ namespace game_collection.Controllers
         [HttpPost]
         public async Task<IActionResult> Registration(RegisterViewModel model)
         {
-            // Check if the model is valid
-            if(!ModelState.IsValid)
-            {
-                Console.WriteLine("model is invalid");
-                return View();
-            }
+            if(!ModelState.IsValid) return View(model);
 
             // Create the user
             var newUser = new IdentityUser
@@ -44,13 +39,18 @@ namespace game_collection.Controllers
            // save the user info and the hashed password to the database
            var result =  await this.userManager.CreateAsync(newUser, model.Password);
            if(result.Succeeded)
-           {
-            Console.WriteLine("User was created successfully");
             return Redirect("/Account/Login");
-           }
+           
            else
            {
-            Console.WriteLine("User was not created successfully");
+            foreach(var error in result.Errors)
+            {
+                if(error.Description.Contains("Email")) ModelState.AddModelError("Email", error.Description);
+                if(error.Description.Contains("Username")) ModelState.AddModelError("Username", error.Description);
+                if(error.Description.Contains("Password")) ModelState.AddModelError("Password", error.Description);
+                if(error.Description.Contains("ConfirmPassword")) ModelState.AddModelError("ConfirmPassword", error.Description);
+            }
+                    
             return View();
            }
         }
