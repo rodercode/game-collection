@@ -25,26 +25,28 @@ namespace game_collection.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Registration(RegisterViewModel model)
+        public async Task<IActionResult> Registration(RegisterViewModel request)
         {
-            if(!ModelState.IsValid) return View(model);
+            // Check if all the fields are filled
+            if(!ModelState.IsValid) return View();
 
-            // Create the user
             var newUser = new IdentityUser
             {
-                UserName = model.Username,
-                Email = model.Email
+                // Set a username and email for the user
+                UserName = request.Username,
+                Email = request.Email
             };
-
-           // save the user info and the hashed password to the database
-           var result =  await this.userManager.CreateAsync(newUser, model.Password);
+           // hash the set password and store it in the database
+           var result =  await this.userManager.CreateAsync(newUser, request.Password);
+           
            if(result.Succeeded)
             return Redirect("/Account/Login");
            
            else
            {
             foreach(var error in result.Errors)
-            {
+            { 
+                // Store errors message in the ModelState
                 if(error.Description.Contains("Email")) ModelState.AddModelError("Email", error.Description);
                 if(error.Description.Contains("Username")) ModelState.AddModelError("Username", error.Description);
                 if(error.Description.Contains("Password")) ModelState.AddModelError("Password", error.Description);
