@@ -12,7 +12,6 @@ namespace game_collection.Models
         public string Username { get; set; } = string.Empty;
 
         [Required]
-        [EmailAddress(ErrorMessage = "Invalid email address")]
         public string Email { get; set; } = string.Empty;
         
         [Required]

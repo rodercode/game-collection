@@ -7,44 +7,51 @@
 <div class="container  ">
     <div class="row align-items-center vh-100">
         <div class="card bg-glass">
-        <div class="card-body px-4 py-5 px-md-5">
-            
-            <form method="post" asp-controller="Account" asp-action="Registration" >
-                <h1>Lets Sign you in</h1>
-                <p class="lead">Welcome back, You've been missed</p>
-                <div class="d-grid gap-4">
-                    <!-- Username input -->
-                    <div class="form-group">
-                    <input class="form-control form-control-lg" asp-for="Username" type="text" placeholder="Username"  />
-                    <span class="text-danger" asp-validation-for="Username"></span>
-                    </div>
+            <div class="card-body px-4 py-5 px-md-5">
 
-                    <!-- Email input -->
-                    <div class="form-group">
-                    <input class="form-control form-control-lg" asp-for="Email" type="email" placeholder="Email"  />
-                    <span class="text-danger" asp-validation-for="Email"></span>
-                    </div>
+                <form method="post" asp-controller="Account" asp-action="Registration">
+                    <header>
+                        <h1>Lets Sign you in</h1>
+                        <p class="lead">Welcome back, You've been missed</p>
+                    </header>
+                    <main>
+                        <div class="d-grid gap-4">
+                            @* USERNAME INPUT FIELD *@
+                            <div class="form-group">
+                                <input class="form-control form-control-lg" asp-for="Username" type="text"
+                                    placeholder="Username" />
+                                <span class="text-danger" asp-validation-for="Username"></span>
+                            </div>
 
-                    <!-- Password input -->
-                    <div class="form-group">
-                    <input class="form-control form-control-lg" asp-for="Password" type="password" placeholder="Password"  />
-                    <span class="text-danger" asp-validation-for="Password"></span>
-                    </div>
+                            @* EMAIL INPUT FIELD *@
+                            <div class="form-group">
+                                <input class="form-control form-control-lg" asp-for="Email" type="email"
+                                    placeholder="Email" />
+                                <span class="text-danger" asp-validation-for="Email"></span>
+                            </div>
 
-                    <!-- Confirm Password input -->
-                    <div class="form-group">
-                    <input class="form-control form-control-lg" asp-for="ConfirmPassword" type="password" placeholder="Confirm Password" />
-                    <span class="text-danger" asp-validation-for="ConfirmPassword"></span>
-                    </div>
+                            @* PASSWORD INPUT FIELD *@
+                            <div class="form-group">
+                                <input class="form-control form-control-lg" asp-for="Password" type="password"
+                                    placeholder="Password" />
+                                <span class="text-danger" asp-validation-for="Password"></span>
+                            </div>
 
-                    <!-- Submit button -->
-                    <button type="submit" class="btn btn-lg btn-primary btn-block mb-4">
-                    Registration
-                    </button>
-                </div>
-            </form>
+                            @* CONFIRM PASSWORD INPUT FIELD *@
+                            <div class="form-group">
+                                <input class="form-control form-control-lg" asp-for="ConfirmPassword" type="password"
+                                    placeholder="Confirm Password" />
+                                <span class="text-danger" asp-validation-for="ConfirmPassword"></span>
+                            </div>
 
+                            @* SUBMIT BUTTON *@
+                            <button type="submit" class="btn btn-lg btn-primary btn-block mb-4">
+                                Registration
+                            </button>
+                        </div>
+                    </main>
+                </form>
+            </div>
         </div>
-    </div>
     </div>
 </div>
