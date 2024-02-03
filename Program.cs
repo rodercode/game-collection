@@ -18,10 +18,7 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
 {
     // Configure username requirements
     options.User.RequireUniqueEmail = true;
-    
-    // Configure email requirements
-    options.User.RequireUniqueEmail = true;
-    
+        
     // Configure Password requirements
     options.Password.RequireDigit = true;
     options.Password.RequireLowercase = true;
