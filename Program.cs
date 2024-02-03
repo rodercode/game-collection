@@ -16,14 +16,15 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 // Inject classes IdentityUser and Identity Role
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(options => 
 {
-    // Configure email requirements
+    // Configure username requirements
     options.User.RequireUniqueEmail = true;
-    
+        
     // Configure Password requirements
     options.Password.RequireDigit = true;
     options.Password.RequireLowercase = true;
     options.Password.RequireUppercase = true;
     options.Password.RequireNonAlphanumeric = true;
+    options.Password.RequiredLength = 8;    
 
     // Lockout requirements
     options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(15);

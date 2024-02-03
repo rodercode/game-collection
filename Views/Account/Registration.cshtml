@@ -16,21 +16,25 @@
                     <!-- Username input -->
                     <div class="form-group">
                     <input class="form-control form-control-lg" asp-for="Username" type="text" placeholder="Username"  />
+                    <span class="text-danger" asp-validation-for="Username"></span>
                     </div>
 
                     <!-- Email input -->
                     <div class="form-group">
                     <input class="form-control form-control-lg" asp-for="Email" type="email" placeholder="Email"  />
+                    <span class="text-danger" asp-validation-for="Email"></span>
                     </div>
 
                     <!-- Password input -->
                     <div class="form-group">
                     <input class="form-control form-control-lg" asp-for="Password" type="password" placeholder="Password"  />
+                    <span class="text-danger" asp-validation-for="Password"></span>
                     </div>
 
                     <!-- Confirm Password input -->
                     <div class="form-group">
                     <input class="form-control form-control-lg" asp-for="ConfirmPassword" type="password" placeholder="Confirm Password" />
+                    <span class="text-danger" asp-validation-for="ConfirmPassword"></span>
                     </div>
 
                     <!-- Submit button -->
